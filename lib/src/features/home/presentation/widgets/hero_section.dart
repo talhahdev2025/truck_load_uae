@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_constants.dart';
 import '../../../../core/constants/breakpoints.dart';
 import '../../../../core/utils/external_links.dart';
 import '../../../../core/utils/responsive_layout.dart';
