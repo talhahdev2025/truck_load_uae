@@ -1,0 +1,23 @@
+name: truck_loads_uae
+description: "Direct 3-Ton Freight Transport in Dubai & UAE - Production Flutter Web App"
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.1
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
