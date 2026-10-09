@@ -1,4 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<queries>
+        <!-- WhatsApp Package -->
+        <package android:name="com.whatsapp" />
+        <!-- WhatsApp Business -->
+        <package android:name="com.whatsapp.w4b" />
+        <!-- Web Links -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+        <!-- Telephone calls -->
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
+    </queries>
     <application
         android:label="truck_loads_uae"
         android:name="${applicationName}"

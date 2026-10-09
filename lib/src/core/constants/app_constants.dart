@@ -2,6 +2,8 @@
 abstract final class AppConstants {
   static const String appName = 'TRUCKLOAD UAE';
   static const String appTagline = 'DXB 24/7 DIRECT';
+  static const int estimatedCallSeconds =
+      1800; // in seconds, default to 1800 (30 minutes)
   static const String dispatchPhone = '+97148005623';
   static const String dispatchPhoneDisplay = '+971 4 800 5623';
   static const String dispatchPhoneHotline = '+971 4 800 LOAD';
@@ -14,5 +16,5 @@ abstract final class AppConstants {
   static const String logoUrl =
       'https://lh3.googleusercontent.com/aida/AEtjO1UuZ4d5xwoKZfSRQdJz3lkBsf2RaJ6vzFN603_fWJdezTMcj_4qmc5LUBhVj6KXWrAGRQgOw0jQ8BbNOiw3QZd0mT1UrojCG6rlIAUtZdk1ei0EQVD3u1fH_PcG2YzA1Qmw-QbqrCgm6U04eXb1C43fOaevK6-latqQJusjPOBGmTiF-gOOI-qkLjj05j_0y6EV2QKet_GD8lmsMCqg-BWV2A3biT0o9S0BwX6uyuXwXA';
   static const String heroFleetImageUrl =
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuCE4pEax2_FPV9g0lVoNJgAFHvFTUH-Y_slr8afXFxTcHO2Xoyq3b2NMQixeNSABCOXLE1cyp5wrtZ0M8JkjvYWYUCbC4hTvQn9dXyNzJJR6fmWlXHAO_TmVpTXeI560eQaC2iKMHXgJnbx80rmSbzQdveyUKVQtFHCOwiMk7V14SDsD4cN2nWGpUZwEsQhVwjvSOJm3tlfNUtpk1oFV-37XcxLyjV_RTPG3bF-dsEU';
+      'https://utdmotors.com/truck-buses/man-topused/';
 }

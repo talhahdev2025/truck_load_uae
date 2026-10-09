@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/utils/external_links.dart';
 
 class MobileBottomActionBar extends StatelessWidget {
-  const MobileBottomActionBar({
-    super.key,
-    required this.onPostLoadPressed,
-  });
+  const MobileBottomActionBar({super.key, required this.onPostLoadPressed});
 
   final VoidCallback onPostLoadPressed;
 
@@ -15,9 +13,7 @@ class MobileBottomActionBar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLow,
-        border: const Border(
-          top: BorderSide(color: AppColors.surfaceVariant),
-        ),
+        border: const Border(top: BorderSide(color: AppColors.surfaceVariant)),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.4),
@@ -35,7 +31,15 @@ class MobileBottomActionBar extends StatelessWidget {
             Expanded(
               child: ElevatedButton.icon(
                 onPressed: () => ExternalLinks.openWhatsApp(),
-                icon: const Icon(Icons.chat_bubble_outline_rounded, size: 16),
+                icon: SvgPicture.asset(
+                  'assets/icons/whatsapp.svg',
+                  height: 20,
+                  width: 20,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.onSecondary,
+                    BlendMode.srcIn,
+                  ),
+                ),
                 label: const Text('WhatsApp'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.secondaryContainer,

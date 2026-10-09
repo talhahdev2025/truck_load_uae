@@ -1,3 +1,5 @@
+import 'package:truck_loads_uae/src/core/constants/app_constants.dart';
+
 enum BookingStatus {
   queued('Queued'),
   underReview('Under Review'),
@@ -19,7 +21,8 @@ class LoadBooking {
   final String cargoDescription;
   final DateTime createdAt;
   final BookingStatus status;
-  final int estimatedCallSeconds;
+  final int estimatedCallSeconds = AppConstants
+      .estimatedCallSeconds; // in seconds, default to 1800 (30 minutes)
 
   const LoadBooking({
     required this.id,
@@ -32,7 +35,6 @@ class LoadBooking {
     this.cargoDescription = '',
     required this.createdAt,
     this.status = BookingStatus.queued,
-    this.estimatedCallSeconds = 402, // 6 mins 42 secs
   });
 
   String get truckTypeDisplayName {
@@ -76,7 +78,7 @@ class LoadBooking {
       cargoDescription: cargoDescription ?? this.cargoDescription,
       createdAt: createdAt ?? this.createdAt,
       status: status ?? this.status,
-      estimatedCallSeconds: estimatedCallSeconds ?? this.estimatedCallSeconds,
+      // estimatedCallSeconds: estimatedCallSeconds ?? this.estimatedCallSeconds,
     );
   }
 }

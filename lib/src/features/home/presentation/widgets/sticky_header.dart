@@ -15,7 +15,7 @@ class StickyHeader extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onOpenMobileMenu;
 
   @override
-  Size get preferredSize => const Size.fromHeight(80);
+  Size get preferredSize => const Size.fromHeight(100);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class StickyHeader extends StatelessWidget implements PreferredSizeWidget {
     final isTablet = Breakpoints.isTablet(context);
 
     return Container(
-      height: 80,
+      height: 100,
       decoration: BoxDecoration(
         color: AppColors.surface.withValues(alpha: 0.94),
         border: const Border(
@@ -32,11 +32,11 @@ class StickyHeader extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: Breakpoints.maxContentWidth),
+          constraints: const BoxConstraints(
+            maxWidth: Breakpoints.maxContentWidth,
+          ),
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: isDesktop ? 48.0 : 20.0,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: isDesktop ? 48.0 : 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,7 +55,8 @@ class StickyHeader extends StatelessWidget implements PreferredSizeWidget {
                     const SizedBox(width: 14),
                     Text(
                       AppConstants.appName,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(
                             fontWeight: FontWeight.w800,
                             letterSpacing: -0.5,
                             color: AppColors.onSurface,
@@ -84,28 +85,32 @@ class StickyHeader extends StatelessWidget implements PreferredSizeWidget {
                 Row(
                   children: [
                     // Phone Call Button
-                    ElevatedButton.icon(
-                      onPressed: ExternalLinks.callDispatch,
-                      icon: const Icon(Icons.phone_in_talk, size: 16),
-                      label: Text(
-                        Breakpoints.isMobile(context) ? 'Dispatch' : 'Call / WhatsApp Us',
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryContainer,
-                        foregroundColor: AppColors.onPrimary,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        textStyle: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
+                    Breakpoints.isMobile(context)
+                        ? const SizedBox()
+                        : ElevatedButton.icon(
+                            onPressed: ExternalLinks.callDispatch,
+                            icon: const Icon(Icons.phone_in_talk, size: 16),
+                            label: Text(
+                              Breakpoints.isMobile(context)
+                                  ? 'Dispatch'
+                                  : 'Call / WhatsApp Us',
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.primaryContainer,
+                              foregroundColor: AppColors.onPrimary,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 12,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
                     const SizedBox(width: 10),
                     // Mobile Menu Toggle
                     if (!isDesktop) ...[
@@ -141,9 +146,9 @@ class StickyHeader extends StatelessWidget implements PreferredSizeWidget {
       child: Text(
         label,
         style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: isActive ? AppColors.primary : AppColors.onSurfaceVariant,
-              fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
-            ),
+          color: isActive ? AppColors.primary : AppColors.onSurfaceVariant,
+          fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
+        ),
       ),
     );
   }

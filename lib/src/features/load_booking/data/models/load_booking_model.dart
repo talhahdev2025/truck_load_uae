@@ -1,3 +1,5 @@
+import 'package:truck_loads_uae/src/core/constants/app_constants.dart';
+
 import '../../domain/entities/load_booking.dart';
 
 /// Data transfer model for LoadBooking with json serialization
@@ -13,7 +15,7 @@ class LoadBookingModel extends LoadBooking {
     super.cargoDescription,
     required super.createdAt,
     super.status,
-    super.estimatedCallSeconds,
+    // super.estimatedCallSeconds,
   });
 
   factory LoadBookingModel.fromEntity(LoadBooking entity) {
@@ -28,7 +30,7 @@ class LoadBookingModel extends LoadBooking {
       cargoDescription: entity.cargoDescription,
       createdAt: entity.createdAt,
       status: entity.status,
-      estimatedCallSeconds: entity.estimatedCallSeconds,
+      // estimatedCallSeconds: entity.estimatedCallSeconds,
     );
   }
 
@@ -40,14 +42,19 @@ class LoadBookingModel extends LoadBooking {
       pickupLocation: json['pickupLocation'] as String,
       dropoffLocation: json['dropoffLocation'] as String,
       truckType: json['truckType'] as String,
-      preferredPickupTime: DateTime.parse(json['preferredPickupTime'] as String),
+      preferredPickupTime: DateTime.parse(
+        json['preferredPickupTime'] as String,
+      ),
       cargoDescription: (json['cargoDescription'] as String?) ?? '',
       createdAt: DateTime.parse(json['createdAt'] as String),
       status: BookingStatus.values.firstWhere(
         (e) => e.name == json['status'],
         orElse: () => BookingStatus.queued,
       ),
-      estimatedCallSeconds: (json['estimatedCallSeconds'] as num?)?.toInt() ?? 402,
+      // estimatedCallSeconds:
+      //     (json['estimatedCallSeconds'] as num?)?.toInt() ??
+      //     AppConstants
+      //         .estimatedCallSeconds, // Default to 1800 seconds (30 minutes) if not provided
     );
   }
 

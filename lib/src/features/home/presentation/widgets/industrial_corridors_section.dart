@@ -25,15 +25,9 @@ class IndustrialCorridorsSection extends StatelessWidget {
               return Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                    flex: 6,
-                    child: _buildLeftAuthority(context),
-                  ),
+                  Expanded(flex: 6, child: _buildLeftAuthority(context)),
                   const SizedBox(width: 48),
-                  Expanded(
-                    flex: 6,
-                    child: _buildRightCorridors(context),
-                  ),
+                  Expanded(flex: 6, child: _buildRightCorridors(context)),
                 ],
               );
             } else {
@@ -59,35 +53,35 @@ class IndustrialCorridorsSection extends StatelessWidget {
         Text(
           'INDUSTRIAL OPERATIONS AUTHORITY',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: AppColors.primary,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.5,
-              ),
+            color: AppColors.primary,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1.5,
+          ),
         ),
         const SizedBox(height: 10),
         Text(
           'Reliable Direct Transport across UAE’s Manufacturing & Logistics Arteries',
           style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                color: AppColors.onSurface,
-                fontWeight: FontWeight.w700,
-                height: 1.25,
-              ),
+            color: AppColors.onSurface,
+            fontWeight: FontWeight.w700,
+            height: 1.25,
+          ),
         ),
         const SizedBox(height: 16),
         Text(
           'TruckLoad UAE provides direct cargo transportation across Dubai and the UAE, with a strong focus on industrial areas, bonded warehouses, critical infrastructure construction sites, and fast-turnaround commercial deliveries.',
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: AppColors.onSurfaceVariant,
-                height: 1.6,
-              ),
+            color: AppColors.onSurfaceVariant,
+            height: 1.6,
+          ),
         ),
         const SizedBox(height: 14),
         Text(
           'Our drivers carry accredited DP World port permits, JAFZA permanent entry badges, and municipality compliance papers to guarantee frictionless transit without clearance stoppages.',
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: AppColors.onSurfaceVariant,
-                height: 1.6,
-              ),
+            color: AppColors.onSurfaceVariant,
+            height: 1.6,
+          ),
         ),
         const SizedBox(height: 28),
         Row(
@@ -134,16 +128,16 @@ class IndustrialCorridorsSection extends StatelessWidget {
           Text(
             value,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: valueColor,
-                  fontWeight: FontWeight.w800,
-                ),
+              color: valueColor,
+              fontWeight: FontWeight.w800,
+            ),
           ),
           const SizedBox(height: 4),
           Text(
             label,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: AppColors.onSurfaceVariant,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
           ),
         ],
       ),
@@ -152,30 +146,12 @@ class IndustrialCorridorsSection extends StatelessWidget {
 
   Widget _buildRightCorridors(BuildContext context) {
     const corridors = [
-      (
-        'JAFZA',
-        'Jebel Ali Free Zone (North/South)',
-      ),
-      (
-        'Al Quoz',
-        'Al Quoz Industrial 1, 2, 3 & 4',
-      ),
-      (
-        'DIP',
-        'Dubai Investments Park 1 & 2',
-      ),
-      (
-        'Mussafah',
-        'Abu Dhabi ICAD Zones 1–3',
-      ),
-      (
-        'Ras Al Khor',
-        'Central Wholesale & Auto Hub',
-      ),
-      (
-        'DIC',
-        'Dubai Industrial City',
-      ),
+      ('JAFZA', 'Jebel Ali Free Zone (North/South)'),
+      ('Al Quoz', 'Al Quoz Industrial 1, 2, 3 & 4'),
+      ('DIP', 'Dubai Investments Park 1 & 2'),
+      ('Mussafah', 'Abu Dhabi ICAD Zones 1–3'),
+      ('Ras Al Khor', 'Central Wholesale & Auto Hub'),
+      ('DIC', 'Dubai Industrial City'),
     ];
 
     return Container(
@@ -204,20 +180,20 @@ class IndustrialCorridorsSection extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                'Strategic Operating Corridors',
+                'Strategic Operating ${Breakpoints.isMobile(context) ? '\n' : ' '}Corridors',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      color: AppColors.onSurface,
-                      fontWeight: FontWeight.w700,
-                    ),
+                  color: AppColors.onSurface,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ],
           ),
           const SizedBox(height: 8),
           Text(
             'Instant-dispatch fleet clusters standing by at major logistics hubs:',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: AppColors.onSurfaceVariant,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
           ),
           const SizedBox(height: 24),
           LayoutBuilder(
@@ -236,7 +212,10 @@ class IndustrialCorridorsSection extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final corridor = corridors[index];
                   return Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 12,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.surfaceContainerHigh,
                       borderRadius: BorderRadius.circular(12),
@@ -255,7 +234,8 @@ class IndustrialCorridorsSection extends StatelessWidget {
                             children: [
                               Text(
                                 corridor.$1,
-                                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                                style: Theme.of(context).textTheme.labelLarge
+                                    ?.copyWith(
                                       fontWeight: FontWeight.w700,
                                       color: AppColors.onSurface,
                                     ),
@@ -265,7 +245,8 @@ class IndustrialCorridorsSection extends StatelessWidget {
                                 corridor.$2,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                style: Theme.of(context).textTheme.bodySmall
+                                    ?.copyWith(
                                       color: AppColors.onSurfaceVariant,
                                       fontSize: 11,
                                     ),

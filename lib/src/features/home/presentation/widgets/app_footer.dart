@@ -5,10 +5,7 @@ import '../../../../core/utils/external_links.dart';
 import '../../../../core/utils/responsive_layout.dart';
 
 class AppFooter extends StatelessWidget {
-  const AppFooter({
-    super.key,
-    required this.onNavigate,
-  });
+  const AppFooter({super.key, required this.onNavigate});
 
   final void Function(String sectionKey) onNavigate;
 
@@ -17,9 +14,7 @@ class AppFooter extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         color: AppColors.surfaceContainerLowest,
-        border: Border(
-          top: BorderSide(color: AppColors.surfaceVariant),
-        ),
+        border: Border(top: BorderSide(color: AppColors.surfaceVariant)),
       ),
       padding: const EdgeInsets.symmetric(vertical: 64),
       child: ResponsiveContainer(
@@ -103,9 +98,8 @@ class AppFooter extends StatelessWidget {
                           children: [
                             Text(
                               'Copyright © 2026 TruckLoad UAE. All rights reserved.',
-                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: AppColors.onSurfaceVariant,
-                                  ),
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: AppColors.onSurfaceVariant),
                             ),
                             _buildLegalLinks(context),
                           ],
@@ -115,9 +109,8 @@ class AppFooter extends StatelessWidget {
                           children: [
                             Text(
                               'Copyright © 2026 TruckLoad UAE. All rights reserved.',
-                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: AppColors.onSurfaceVariant,
-                                  ),
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: AppColors.onSurfaceVariant),
                             ),
                             const SizedBox(height: 12),
                             _buildLegalLinks(context),
@@ -139,18 +132,18 @@ class AppFooter extends StatelessWidget {
         Text(
           AppConstants.appName,
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.w800,
-                color: AppColors.onSurface,
-                letterSpacing: -0.5,
-              ),
+            fontWeight: FontWeight.w800,
+            color: AppColors.onSurface,
+            letterSpacing: -0.5,
+          ),
         ),
         const SizedBox(height: 12),
         Text(
           'Direct Cargo Transport across Dubai & UAE. Industrial-grade freight management with real-time tracking and zero brokerage ambiguity.',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.onSurfaceVariant,
-                height: 1.55,
-              ),
+            color: AppColors.onSurfaceVariant,
+            height: 1.55,
+          ),
         ),
         const SizedBox(height: 16),
         Wrap(
@@ -172,10 +165,10 @@ class AppFooter extends StatelessWidget {
         Text(
           'QUICK NAVIGATION',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-                color: AppColors.onSurface,
-                letterSpacing: 1.2,
-              ),
+            fontWeight: FontWeight.w700,
+            color: AppColors.onSurface,
+            letterSpacing: 1.2,
+          ),
         ),
         const SizedBox(height: 14),
         _buildFooterLink('Home', () => onNavigate('home')),
@@ -196,17 +189,17 @@ class AppFooter extends StatelessWidget {
         Text(
           '24/7 OPERATIONS HUB',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-                color: AppColors.onSurface,
-                letterSpacing: 1.2,
-              ),
+            fontWeight: FontWeight.w700,
+            color: AppColors.onSurface,
+            letterSpacing: 1.2,
+          ),
         ),
         const SizedBox(height: 14),
         Text(
           'Central Dispatch Hotline:',
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.onSurfaceVariant,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
         ),
         const SizedBox(height: 4),
         InkWell(
@@ -214,25 +207,25 @@ class AppFooter extends StatelessWidget {
           child: Text(
             AppConstants.dispatchPhoneHotline,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.w700,
-                ),
+              color: AppColors.primary,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
         const SizedBox(height: 14),
         Text(
           'Operational Control Center:',
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.onSurfaceVariant,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
         ),
         const SizedBox(height: 4),
         Text(
           AppConstants.operationalCenterAddress,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.onSurface,
-                height: 1.4,
-              ),
+            color: AppColors.onSurface,
+            height: 1.4,
+          ),
         ),
       ],
     );
@@ -247,18 +240,18 @@ class AppFooter extends StatelessWidget {
         Text(
           'COVERAGE ZONES',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-                color: AppColors.onSurface,
-                letterSpacing: 1.2,
-              ),
+            fontWeight: FontWeight.w700,
+            color: AppColors.onSurface,
+            letterSpacing: 1.2,
+          ),
         ),
         const SizedBox(height: 14),
         Text(
           'Rapid response fleet stations positioned across key industrial belts:',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.onSurfaceVariant,
-                height: 1.45,
-              ),
+            color: AppColors.onSurfaceVariant,
+            height: 1.45,
+          ),
         ),
         const SizedBox(height: 12),
         Wrap(
@@ -297,9 +290,9 @@ class AppFooter extends StatelessWidget {
       child: Text(
         text,
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-              color: AppColors.onSurfaceVariant,
-              fontSize: 11,
-            ),
+          color: AppColors.onSurfaceVariant,
+          fontSize: 11,
+        ),
       ),
     );
   }
@@ -315,9 +308,9 @@ class AppFooter extends StatelessWidget {
       child: Text(
         text,
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-              color: AppColors.onSurface,
-              fontWeight: FontWeight.w600,
-            ),
+          color: AppColors.onSurface,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
@@ -329,8 +322,6 @@ class AppFooter extends StatelessWidget {
         _buildLegalLink('Terms of Carriage'),
         const SizedBox(width: 16),
         _buildLegalLink('Privacy Policy'),
-        const SizedBox(width: 16),
-        _buildLegalLink('Waybill Verification'),
       ],
     );
   }
@@ -340,10 +331,7 @@ class AppFooter extends StatelessWidget {
       onTap: () {},
       child: Text(
         text,
-        style: const TextStyle(
-          color: AppColors.onSurfaceVariant,
-          fontSize: 12,
-        ),
+        style: const TextStyle(color: AppColors.onSurfaceVariant, fontSize: 12),
       ),
     );
   }

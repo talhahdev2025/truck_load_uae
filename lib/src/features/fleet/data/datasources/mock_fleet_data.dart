@@ -21,7 +21,6 @@ abstract final class MockFleetData {
           'The UAE industrial workhorse. Ideal for general cargo, heavy machinery components, cartons, and pallet freight.',
       status: FleetStatus.available,
       icon: Icons.rv_hookup,
-      isPopular: true,
       bookingTruckTypeValue: '3-ton',
     ),
     FleetTruck(

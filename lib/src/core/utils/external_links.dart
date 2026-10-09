@@ -6,7 +6,9 @@ abstract final class ExternalLinks {
     final messageQuery = customMessage != null
         ? '?text=${Uri.encodeComponent(customMessage)}'
         : '';
-    final uri = Uri.parse('https://wa.me/${AppConstants.whatsappNumber}$messageQuery');
+    final uri = Uri.parse(
+      'https://wa.me/${AppConstants.whatsappNumber}$messageQuery',
+    );
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     }

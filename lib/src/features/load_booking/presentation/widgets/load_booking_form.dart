@@ -98,8 +98,9 @@ class _LoadBookingFormState extends ConsumerState<LoadBookingForm> {
             time.hour,
             time.minute,
           );
-          _pickupTimeController.text =
-              DateFormat('yyyy-MM-dd HH:mm').format(_selectedDateTime);
+          _pickupTimeController.text = DateFormat(
+            'yyyy-MM-dd HH:mm',
+          ).format(_selectedDateTime);
         });
       }
     }
@@ -108,7 +109,9 @@ class _LoadBookingFormState extends ConsumerState<LoadBookingForm> {
   void _handleSubmit() {
     if (_formKey.currentState?.validate() ?? false) {
       final truckType = ref.read(selectedTruckTypeProvider);
-      ref.read(loadBookingControllerProvider.notifier).submitBooking(
+      ref
+          .read(loadBookingControllerProvider.notifier)
+          .submitBooking(
             fullName: _nameController.text.trim(),
             phoneNumber: _phoneController.text.trim(),
             pickupLocation: _pickupController.text.trim(),
@@ -224,7 +227,8 @@ class _LoadBookingFormState extends ConsumerState<LoadBookingForm> {
                             const SizedBox(width: 10),
                             Text(
                               'Submit Load Request',
-                              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              style: Theme.of(context).textTheme.titleMedium
+                                  ?.copyWith(
                                     color: AppColors.onPrimary,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -239,8 +243,8 @@ class _LoadBookingFormState extends ConsumerState<LoadBookingForm> {
                   'By submitting, your manifest is broadcasted directly to our senior fleet dispatch officer in JAFZA South.',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: AppColors.onSurfaceVariant.withValues(alpha: 0.8),
-                      ),
+                    color: AppColors.onSurfaceVariant.withValues(alpha: 0.8),
+                  ),
                 ),
               ],
             ),
@@ -272,10 +276,10 @@ class _LoadBookingFormState extends ConsumerState<LoadBookingForm> {
       child: Text(
         label.toUpperCase(),
         style: Theme.of(context).textTheme.labelMedium?.copyWith(
-              color: AppColors.onSurfaceVariant,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 0.6,
-            ),
+          color: AppColors.onSurfaceVariant,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.6,
+        ),
       ),
     );
   }
@@ -406,25 +410,16 @@ class _LoadBookingFormState extends ConsumerState<LoadBookingForm> {
           ),
           decoration: const InputDecoration(),
           items: const [
-            DropdownMenuItem(
-              value: '3-ton',
-              child: Text('3-Ton Pickup (Box / Standard) - Recommended'),
-            ),
-            DropdownMenuItem(
-              value: '1-ton',
-              child: Text('1-Ton Pickup (Express Courier)'),
-            ),
-            DropdownMenuItem(
-              value: '7-ton',
-              child: Text('7-Ton Heavy Truck (Bulk Pallets)'),
-            ),
+            DropdownMenuItem(value: '3-ton', child: Text('3-Ton Pickup')),
+            DropdownMenuItem(value: '1-ton', child: Text('1-Ton Pickup')),
+            DropdownMenuItem(value: '7-ton', child: Text('7-Ton Heavy Truck')),
             DropdownMenuItem(
               value: 'flatbed',
-              child: Text('Flatbed Open Trailer (Machinery / Steel)'),
+              child: Text('Flatbed Open Trailer'),
             ),
             DropdownMenuItem(
               value: 'chiller',
-              child: Text('Chiller / Freezer Box (+2°C to -18°C)'),
+              child: Text('Chiller / Freezer Box'),
             ),
           ],
           onChanged: (val) {

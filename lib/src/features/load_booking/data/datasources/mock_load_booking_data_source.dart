@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:truck_loads_uae/src/core/constants/app_constants.dart';
+
 import '../models/load_booking_model.dart';
 import '../../domain/entities/load_booking.dart';
 
@@ -26,7 +28,7 @@ class MockLoadBookingDataSource {
       cargoDescription: booking.cargoDescription,
       createdAt: DateTime.now(),
       status: BookingStatus.queued,
-      estimatedCallSeconds: 402, // 6 mins 42 secs
+      // estimatedCallSeconds: AppConstants.estimatedCallSeconds,
     );
 
     _bookings.insert(0, createdModel);

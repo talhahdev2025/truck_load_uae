@@ -61,7 +61,9 @@ class _BookingSuccessDialogState extends State<BookingSuccessDialog> {
       decoration: BoxDecoration(
         color: AppColors.surfaceContainer.withValues(alpha: 0.98),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.secondaryContainer.withValues(alpha: 0.5)),
+        border: Border.all(
+          color: AppColors.secondaryContainer.withValues(alpha: 0.5),
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.5),
@@ -107,10 +109,10 @@ class _BookingSuccessDialogState extends State<BookingSuccessDialog> {
             child: Text(
               'Waybill Queued #${widget.booking.id}',
               style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: AppColors.secondary,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 1.2,
-                  ),
+                color: AppColors.secondary,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 1.2,
+              ),
             ),
           ),
           const SizedBox(height: 12),
@@ -120,9 +122,9 @@ class _BookingSuccessDialogState extends State<BookingSuccessDialog> {
             'Load Request Received!',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: AppColors.onSurface,
-                  fontWeight: FontWeight.w700,
-                ),
+              color: AppColors.onSurface,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           const SizedBox(height: 8),
 
@@ -133,8 +135,8 @@ class _BookingSuccessDialogState extends State<BookingSuccessDialog> {
               'Our active dispatch operator is reviewing your route specifications. A duty officer will telephone ${widget.booking.phoneNumber} within:',
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.onSurfaceVariant,
-                  ),
+                color: AppColors.onSurfaceVariant,
+              ),
             ),
           ),
           const SizedBox(height: 20),
@@ -149,22 +151,37 @@ class _BookingSuccessDialogState extends State<BookingSuccessDialog> {
                 color: AppColors.outlineVariant.withValues(alpha: 0.4),
               ),
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
+            child: Column(
               children: [
-                const Icon(
-                  Icons.timer_outlined,
-                  color: AppColors.primary,
-                  size: 22,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  'Est. Call in: $_formattedTime',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.timer_outlined,
+                      color: AppColors.primary,
+                      size: 22,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      'Est. Call in:',
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: AppColors.primary,
                         fontWeight: FontWeight.w700,
                         letterSpacing: -0.5,
+                        // fontSize: Breakpoints.isMobile(context) ? 16 : 18,
                       ),
+                    ),
+                  ],
+                ),
+                Text(
+                  _formattedTime,
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    color: AppColors.primary,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -0.5,
+                    // fontSize: Breakpoints.isMobile(context) ? 16 : 18,
+                  ),
                 ),
               ],
             ),
