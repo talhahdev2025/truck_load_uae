@@ -4,10 +4,10 @@ import '../entities/load_booking.dart';
 /// Easily interchangeable between Mock and Firestore in the data layer.
 abstract class LoadBookingRepository {
   /// Submit a new load booking to dispatch
-  Future<LoadBooking> submitBooking(LoadBooking booking);
+  Future<void> submitBooking(LoadBooking booking);
 
-  /// Fetch recently submitted bookings
-  Future<List<LoadBooking>> getRecentBookings();
+  // /// Fetch recently submitted bookings
+  // Future<List<LoadBooking>> getRecentBookings();
 
   /// Submit quick corporate inquiry
   Future<bool> submitQuickInquiry({

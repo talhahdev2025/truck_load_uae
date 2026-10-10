@@ -224,6 +224,8 @@ class HeroSection extends StatelessWidget {
               // icon: const Icon(Icons.chat_bubble_outline, size: 20),
               icon: SvgPicture.asset(
                 'assets/icons/whatsapp.svg',
+                height: 20,
+                width: 25,
                 colorFilter: const ColorFilter.mode(
                   AppColors.onSecondary,
                   BlendMode.srcIn,

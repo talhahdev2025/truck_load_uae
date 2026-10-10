@@ -1,43 +1,32 @@
-import 'dart:math';
-import 'package:truck_loads_uae/src/core/constants/app_constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/load_booking_model.dart';
 import '../../domain/entities/load_booking.dart';
 
-/// Simulates asynchronous in-memory data store for load bookings.
-/// Can be replaced with FirestoreRemoteDataSource later.
-class MockLoadBookingDataSource {
-  final List<LoadBookingModel> _bookings = [];
-  int _counter = 8831;
+class FirestoreRemoteDataSource {
+  final FirebaseFirestore _firestore;
+  FirestoreRemoteDataSource(this._firestore);
 
-  Future<LoadBookingModel> createBooking(LoadBooking booking) async {
-    // Simulate real-time dispatch queue processing latency
-    await Future.delayed(const Duration(milliseconds: 1200));
+  Future<void> createBooking(LoadBookingModel booking) async {
+    try {
+      final docRef = _firestore.collection('bookings').doc();
 
-    final waybillId = 'DXB-$_counter';
-    _counter += Random().nextInt(5) + 1;
-
-    final createdModel = LoadBookingModel(
-      id: waybillId,
-      fullName: booking.fullName,
-      phoneNumber: booking.phoneNumber,
-      pickupLocation: booking.pickupLocation,
-      dropoffLocation: booking.dropoffLocation,
-      truckType: booking.truckType,
-      preferredPickupTime: booking.preferredPickupTime,
-      cargoDescription: booking.cargoDescription,
-      createdAt: DateTime.now(),
-      status: BookingStatus.queued,
-      // estimatedCallSeconds: AppConstants.estimatedCallSeconds,
-    );
-
-    _bookings.insert(0, createdModel);
-    return createdModel;
-  }
-
-  Future<List<LoadBookingModel>> getBookings() async {
-    await Future.delayed(const Duration(milliseconds: 400));
-    return List.unmodifiable(_bookings);
+      final bookingData = {
+        'fullName': booking.fullName,
+        'id': booking.id,
+        'phoneNumber': booking.phoneNumber,
+        'pickupLocation': booking.pickupLocation,
+        'dropoffLocation': booking.dropoffLocation,
+        'truckType': booking.truckType,
+        'preferredPickupTime': booking.preferredPickupTime.toIso8601String(),
+        'cargoDescription': booking.cargoDescription,
+        'createdAt': DateTime.now().toIso8601String(),
+        'status': BookingStatus.queued.name,
+      };
+      await docRef.set(bookingData);
+    } catch (e) {
+      throw Exception('Failed to create booking: $e');
+    }
   }
 
   Future<bool> saveInquiry({
@@ -45,7 +34,18 @@ class MockLoadBookingDataSource {
     required String contact,
     required String details,
   }) async {
-    await Future.delayed(const Duration(milliseconds: 800));
-    return true;
+    try {
+      final docRef = _firestore.collection('inquiries').doc();
+      final inquiryData = {
+        'name': name,
+        'contact': contact,
+        'details': details,
+        'createdAt': DateTime.now().toIso8601String(),
+      };
+      await docRef.set(inquiryData);
+      return true;
+    } catch (e) {
+      throw Exception('Failed to save inquiry: $e');
+    }
   }
 }

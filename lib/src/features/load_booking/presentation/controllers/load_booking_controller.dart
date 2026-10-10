@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/load_booking.dart';
 import '../../domain/repositories/load_booking_repository.dart';
-import '../../data/repositories/mock_load_booking_repository.dart';
+import '../../data/repositories/load_booking_repository_impl.dart';
 
 /// Provider for the LoadBookingRepository (Mock or Firestore)
 final loadBookingRepositoryProvider = Provider<LoadBookingRepository>((ref) {
-  return MockLoadBookingRepository();
+  return LoadBookingRepositoryImpl();
 });
 
 /// Shared provider for the currently selected truck type (defaults to '3-ton')
@@ -43,7 +43,8 @@ class LoadBookingController extends AutoDisposeAsyncNotifier<LoadBooking?> {
         createdAt: DateTime.now(),
       );
 
-      return await repository.submitBooking(bookingPayload);
+      await repository.submitBooking(bookingPayload);
+      return bookingPayload;
     });
   }
 
@@ -54,5 +55,5 @@ class LoadBookingController extends AutoDisposeAsyncNotifier<LoadBooking?> {
 
 final loadBookingControllerProvider =
     AutoDisposeAsyncNotifierProvider<LoadBookingController, LoadBooking?>(() {
-  return LoadBookingController();
-});
+      return LoadBookingController();
+    });

@@ -177,7 +177,7 @@ class AppFooter extends StatelessWidget {
         _buildFooterLink('Our Fleet', () => onNavigate('our-fleet')),
         _buildFooterLink('Capabilities', () => onNavigate('capabilities')),
         _buildFooterLink('Contact Us', () => onNavigate('contact-us')),
-        _buildFooterLink('Operator Login', () => onNavigate('contact-us')),
+        // _buildFooterLink('Operator Login', () => onNavigate('contact-us')),
       ],
     );
   }
